@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/la-place/static/css/main.1fb88fdb.css",
-    "main.js": "/la-place/static/js/main.915bd09d.js",
+    "main.css": "/la-place/static/css/main.1d7981ba.css",
+    "main.js": "/la-place/static/js/main.c67092e3.js",
     "static/js/787.d813e158.chunk.js": "/la-place/static/js/787.d813e158.chunk.js",
     "index.html": "/la-place/index.html",
-    "main.1fb88fdb.css.map": "/la-place/static/css/main.1fb88fdb.css.map",
-    "main.915bd09d.js.map": "/la-place/static/js/main.915bd09d.js.map",
+    "main.1d7981ba.css.map": "/la-place/static/css/main.1d7981ba.css.map",
+    "main.c67092e3.js.map": "/la-place/static/js/main.c67092e3.js.map",
     "787.d813e158.chunk.js.map": "/la-place/static/js/787.d813e158.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1fb88fdb.css",
-    "static/js/main.915bd09d.js"
+    "static/css/main.1d7981ba.css",
+    "static/js/main.c67092e3.js"
   ]
 }
