@@ -1,6 +1,5 @@
+import { useCounterDispatch, useCounterSelector } from "@/redux/counter/hooks";
 import { useState } from "react";
-
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import styles from "./Counter.module.css";
 import {
   decrement,
@@ -11,9 +10,9 @@ import {
   selectCount,
 } from "./counterSlice";
 
-export function Counter() {
-  const count = useAppSelector(selectCount);
-  const dispatch = useAppDispatch();
+export const Counter: React.FC = () => {
+  const count = useCounterSelector(selectCount);
+  const dispatch = useCounterDispatch();
   const [incrementAmount, setIncrementAmount] = useState("2");
 
   const incrementValue = Number(incrementAmount) || 0;
@@ -65,4 +64,4 @@ export function Counter() {
       </div>
     </div>
   );
-}
+};

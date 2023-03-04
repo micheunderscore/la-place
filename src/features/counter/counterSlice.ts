@@ -1,4 +1,4 @@
-import { AppThunk, RootState } from "@/redux/store";
+import { CounterThunk, RootState } from "@/redux/counter/store";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCount } from "./counterAPI";
 
@@ -73,7 +73,7 @@ export const selectCount = (state: RootState) => state.counter.value;
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
 export const incrementIfOdd =
-  (amount: number): AppThunk =>
+  (amount: number): CounterThunk =>
   (dispatch, getState) => {
     const currentValue = selectCount(getState());
     if (currentValue % 2 === 1) {

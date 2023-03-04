@@ -1,28 +1,26 @@
-import { GMap, SearchBar } from "@/components";
+import { SearchBar } from "@/components";
+import {
+  getLatLngByAddress,
+  GMap,
+  searchAddress,
+  selectSearch,
+} from "@/features";
+import { useMapDispatch, useMapSelector } from "@/redux/gmap/hooks";
 import { styles } from "@/styles";
 import clsx from "clsx";
-import { useEffect, useMemo, useState } from "react";
-import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
+import { useMemo } from "react";
 
 const SearchScreen: React.FC = () => {
-  const [coordinates, setCoordinates] = useState<
-    google.maps.LatLngLiteral | undefined
-  >();
-  const [address, setAddress] = useState<string>("");
+  const { address, coordinates } = useMapSelector(selectSearch);
+  const dispatch = useMapDispatch();
 
   const handleSubmit = () => {
-    geocodeByAddress(address)
-      .then((results) => getLatLng(results[0]))
-      .then((latLng) => setCoordinates(latLng))
-      .catch((error) => console.error("Error", error));
+    if (!address) return;
+    dispatch(getLatLngByAddress(address));
   };
 
   const mapParams = useMemo(() => {
     return { coordinates, address };
-  }, [coordinates]);
-
-  useEffect(() => {
-    console.log({ where: "SearchScreen", coordinates });
   }, [coordinates]);
 
   return (
@@ -37,7 +35,7 @@ const SearchScreen: React.FC = () => {
       <div className="w-1/2">
         <SearchBar
           value={address}
-          onChange={setAddress}
+          onChange={(value) => dispatch(searchAddress(value))}
           onSubmit={handleSubmit}
         />
       </div>

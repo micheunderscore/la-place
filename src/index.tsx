@@ -1,5 +1,5 @@
 import "@/index.css";
-import { store } from "@/redux/store";
+import { store } from "@/redux/gmap/store";
 import reportWebVitals from "@/reportWebVitals";
 import Search from "@/screen/Search";
 import { createRoot } from "react-dom/client";
