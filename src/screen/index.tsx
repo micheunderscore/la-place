@@ -1,2 +1,2 @@
-export * from "./BaseApp";
-export * from "./SearchBar";
+export * from "./Example";
+export * from "./Search";

@@ -1,7 +1,7 @@
 import "@/index.css";
 import { store } from "@/redux/store";
 import reportWebVitals from "@/reportWebVitals";
-import SearchBar from "@/screen/SearchBar";
+import Search from "@/screen/Search";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
@@ -12,7 +12,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <SearchBar />
+      <Search />
     </Provider>
   </React.StrictMode>
 );
