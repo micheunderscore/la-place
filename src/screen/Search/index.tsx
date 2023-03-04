@@ -28,7 +28,7 @@ const SearchScreen: React.FC = () => {
       className={clsx(
         styles.screen,
         styles.center,
-        "flex-col gap-24 bg-slate-800"
+        "flex-col gap-24 bg-slate-800 overflow-y-scroll"
       )}
     >
       <p className="absolute font-mynerve text-[255px]">La Place</p>

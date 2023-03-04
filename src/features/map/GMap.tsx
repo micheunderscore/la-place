@@ -15,8 +15,6 @@ export const GMap: React.FC<IGMapProps> = ({
 }) => {
   const search = useMapSelector(selectSearch);
 
-  console.log({ search });
-
   const [center, setCenter] = useState<google.maps.LatLngLiteral>({
     lat: 4.210484,
     lng: 101.975766,

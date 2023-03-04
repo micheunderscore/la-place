@@ -45,7 +45,7 @@ export const gmapSlice = createSlice({
         const { coordinates, address } = action.payload;
 
         if (state.recent.indexOf(address) !== -1) {
-          console.log(`"${address}" already exists`);
+          console.error(`"${address}" already exists`);
         } else {
           state.recent.push(address);
         }

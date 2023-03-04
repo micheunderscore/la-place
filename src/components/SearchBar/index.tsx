@@ -62,19 +62,22 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
                 <>
                   {focused &&
                     filteredRecent.map((recent) => (
-                      <div
-                        onClick={() => {
-                          onChange(recent);
-                          console.log(`clicked ${recent}`);
-                        }}
-                        className="flex w-full justify-between items-center py-2 px-4 hover:bg-slate-300"
-                      >
-                        {recent}
-                        <div>
-                          <IoCloseCircle
-                            size={16}
-                            onClick={() => dispatch(removeRecent)}
-                          />
+                      <div className="relative flex w-full items-center transition delay-50 hover:bg-slate-300">
+                        <div
+                          onClick={() => {
+                            onChange(recent);
+                          }}
+                          className="w-full py-2 px-4"
+                        >
+                          {recent}
+                        </div>
+                        <div
+                          onClick={() => {
+                            dispatch(removeRecent(recent));
+                          }}
+                          className="absolute z-10 top-3 right-2 transition delay-50 opacity-25 hover:opacity-100"
+                        >
+                          <IoCloseCircle size={16} />
                         </div>
                       </div>
                     ))}
