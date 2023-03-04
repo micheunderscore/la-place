@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/la-place/static/css/main.54c232e7.css",
+    "main.js": "/la-place/static/js/main.76b1b0e9.js",
+    "static/js/787.d813e158.chunk.js": "/la-place/static/js/787.d813e158.chunk.js",
+    "static/media/logo.svg": "/la-place/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
+    "index.html": "/la-place/index.html",
+    "main.54c232e7.css.map": "/la-place/static/css/main.54c232e7.css.map",
+    "main.76b1b0e9.js.map": "/la-place/static/js/main.76b1b0e9.js.map",
+    "787.d813e158.chunk.js.map": "/la-place/static/js/787.d813e158.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54c232e7.css",
+    "static/js/main.76b1b0e9.js"
+  ]
+}
