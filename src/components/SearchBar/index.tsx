@@ -1,24 +1,50 @@
-import AutoComplete from "antd/es/auto-complete";
-import { AiFillCloseCircle } from "react-icons/ai";
+import Search from "antd/es/input/Search";
+import { FaSearchLocation } from "react-icons/fa";
+import PlacesAutocomplete from "react-places-autocomplete";
 
-export interface ISearchBarProps {}
+export interface ISearchBarProps {
+  value?: string;
+  onChange: (value: string) => void;
+  onSubmit: () => void;
+}
 
-export const SearchBar: React.FC<ISearchBarProps> = (props) => {
-  const options = [
-    { value: "Burns Bay Road" },
-    { value: "Downing Street" },
-    { value: "Wall Street" },
-  ];
+export const SearchBar: React.FC<ISearchBarProps> = ({
+  value,
+  onChange,
+  onSubmit,
+}) => {
+  const handleChange = (newAddress: string) => onChange(newAddress);
 
   return (
-    <AutoComplete
-      className="w-full placeholder-slate-800"
-      clearIcon={<AiFillCloseCircle />}
-      placeholder="Where are we going today?"
-      options={options}
-      filterOption={(input, option) =>
-        option!.value.toUpperCase().indexOf(input.toUpperCase()) !== -1
-      }
-    />
+    <PlacesAutocomplete
+      value={value}
+      onChange={handleChange}
+      onSelect={handleChange}
+    >
+      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+        <div className="relative">
+          <Search
+            size="large"
+            allowClear
+            enterButton={<FaSearchLocation onClick={onSubmit} />}
+            className="flex items-center justify-center"
+            {...getInputProps({
+              placeholder: "Where are we going today?",
+            })}
+          />
+          <div className="w-full mt-2 overflow-hidden rounded-lg absolute block flex-col items-start bg-gray-200">
+            {suggestions.map((suggestion) => (
+              <div
+                {...getSuggestionItemProps(suggestion, {
+                  className: "py-2 px-4 hover:bg-slate-300",
+                })}
+              >
+                {suggestion.description}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </PlacesAutocomplete>
   );
 };

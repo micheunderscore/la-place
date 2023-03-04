@@ -2,19 +2,17 @@ import "@/index.css";
 import { store } from "@/redux/store";
 import reportWebVitals from "@/reportWebVitals";
 import Search from "@/screen/Search";
-import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
+// Had to remove React.StrictMode to get google-map-react to work
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Search />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <Search />
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
