@@ -1,7 +1,7 @@
 import { Counter } from "@/features/counter/Counter";
 import "./styles.css";
 
-const BaseApp: React.FC = () => {
+const ExampleScreen: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -57,4 +57,4 @@ const BaseApp: React.FC = () => {
   );
 };
 
-export default BaseApp;
+export default ExampleScreen;
