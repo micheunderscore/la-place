@@ -1,6 +1,10 @@
 import { removeRecent, selectSearch } from "@/features";
 import { useMapDispatch, useMapSelector } from "@/redux/gmap/hooks";
-import Search from "antd/es/input/Search";
+import { styles } from "@/styles";
+import { Button } from "antd";
+import Input from "antd/es/input";
+import Tooltip from "antd/es/tooltip";
+import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { FaSearchLocation } from "react-icons/fa";
 import { IoCloseCircle } from "react-icons/io5";
@@ -38,18 +42,23 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
         );
         return (
           <div className="relative">
-            <Search
+            <Input
               size="large"
               allowClear
-              enterButton={
-                <FaSearchLocation
-                  onClick={(e) => {
-                    onSubmit();
-                    e.currentTarget.blur();
-                  }}
-                />
+              suffix={
+                <Tooltip title="Search Place">
+                  <Button
+                    type="primary"
+                    onClick={(e) => {
+                      onSubmit();
+                      e.currentTarget.blur();
+                    }}
+                    className={clsx(styles.center, "bg-slate-700")}
+                    icon={<FaSearchLocation size={16} />}
+                  />
+                </Tooltip>
               }
-              className="flex items-center justify-center mt-5"
+              className="flex font-semibold items-center justify-center mt-5"
               onFocus={() => setFocused(true)}
               {...getInputProps({
                 placeholder: "Where are we going today?",

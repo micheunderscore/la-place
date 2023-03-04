@@ -28,18 +28,38 @@ const SearchScreen: React.FC = () => {
       className={clsx(
         styles.screen,
         styles.center,
-        "flex-col gap-24 bg-slate-800 overflow-y-scroll"
+        "flex-col bg-slate-800 overflow-y-scroll overflow-x-hidden"
       )}
     >
-      <p className="absolute font-mynerve text-[255px]">La Place</p>
-      <div className="w-1/2">
+      <p
+        className={clsx(
+          "font-['Tilt Neon'] flex items-center justify-center bg-white px-4 rounded-2xl text-[100px] transition ease-in-out duration-50",
+          coordinates ? "scale-[1] my-2" : "scale-[2] my-24"
+        )}
+      >
+        La
+        <img
+          src={process.env.PUBLIC_URL + "/logo.svg"}
+          alt="logo"
+          className="ml-4 w-24 h-24 text-white"
+        />
+        lace
+      </p>
+      <div className="w-1/2 mb-5">
         <SearchBar
           value={address}
           onChange={(value) => dispatch(searchAddress(value))}
           onSubmit={handleSubmit}
         />
       </div>
-      {coordinates && <GMap {...mapParams} />}
+      <div
+        className={clsx(
+          "flex w-full h-full transition ease-in-out duration-300 delay-100",
+          coordinates ? "translate-y-0" : "translate-y-full"
+        )}
+      >
+        {coordinates && <GMap {...mapParams} />}
+      </div>
     </div>
   );
 };
