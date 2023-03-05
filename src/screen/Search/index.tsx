@@ -52,7 +52,7 @@ const SearchScreen: React.FC = () => {
           (touch?.touches?.[0].clientY ?? click?.clientY ?? 0) -
           (rect?.left ?? 0);
 
-      setDebounced(x, y, click ? 0.5 : 2, target);
+      setDebounced(x, y, 0.5, target);
     }
   };
 
