@@ -1,3 +1,5 @@
+import { styles } from "@/styles";
+import clsx from "clsx";
 import GoogleMapReact from "google-map-react";
 import { useEffect, useState } from "react";
 import { FaMapPin } from "react-icons/fa";
@@ -19,7 +21,14 @@ export const GMap: React.FC<IGMapProps> = ({
   });
 
   const Marker = ({ lat = 0, lng = 0, text = "" }) => (
-    <div className="text-black text-lg whitespace-nowrap flex flex-col items-center justify-center gap-2 -translate-x-full -translate-y-full">
+    <div
+      className={clsx(
+        styles.center,
+        "flex-col whitespace-nowrap gap-2",
+        "text-black text-lg",
+        "-translate-x-full -translate-y-full"
+      )}
+    >
       <div className="p-2 bg-white rounded-lg shadow-lg">{text}</div>
       <FaMapPin size={32} className="text-red-500" />
     </div>

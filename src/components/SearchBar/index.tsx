@@ -46,7 +46,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
               size="large"
               allowClear
               suffix={
-                <Tooltip title="Search Place">
+                <Tooltip title="Find Place on Map">
                   <Button
                     type="primary"
                     onClick={(e) => {
@@ -64,7 +64,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
                   e.currentTarget.blur();
                 }
               }}
-              className="flex font-semibold items-center justify-center mt-5"
+              className={clsx(styles.center, "font-semibold mt-5")}
               onFocus={() => setFocused(true)}
               {...getInputProps({
                 placeholder: "Where are we going today?",
@@ -77,7 +77,12 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
                 <>
                   {focused &&
                     filteredRecent.map((recent) => (
-                      <div className="relative flex w-full items-center transition delay-50 hover:bg-slate-300">
+                      <div
+                        className={clsx(
+                          styles.center,
+                          "relative transition delay-50 hover:bg-slate-300"
+                        )}
+                      >
                         <div
                           onClick={() => {
                             onChange(recent);
