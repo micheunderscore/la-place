@@ -66,7 +66,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
             />
             <div className="w-full mt-2 overflow-hidden rounded-lg absolute block flex-col items-start bg-gray-200 z-10 shadow-lg">
               {loading ? (
-                "Loading..."
+                <div className="px-4 py-2">Loading...</div>
               ) : (
                 <>
                   {focused &&

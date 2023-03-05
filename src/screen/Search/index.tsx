@@ -34,7 +34,7 @@ const SearchScreen: React.FC = () => {
       <p
         className={clsx(
           "font-['Tilt Neon'] flex items-center justify-center bg-white px-4 rounded-2xl text-[100px] transition ease-in-out duration-50",
-          coordinates ? "scale-[1] my-2" : "scale-[2] my-24"
+          coordinates ? "scale-[1] my-2" : "scale-[1] md:scale-[2] my-24"
         )}
       >
         La
@@ -45,7 +45,7 @@ const SearchScreen: React.FC = () => {
         />
         lace
       </p>
-      <div className="w-1/2 mb-5">
+      <div className="w-5/6 md:w-1/2 mb-5">
         <SearchBar
           value={address}
           onChange={(value) => dispatch(searchAddress(value))}
