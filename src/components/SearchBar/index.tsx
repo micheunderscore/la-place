@@ -58,6 +58,12 @@ export const SearchBar: React.FC<ISearchBarProps> = ({
                   />
                 </Tooltip>
               }
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
+                  onSubmit();
+                  e.currentTarget.blur();
+                }
+              }}
               className="flex font-semibold items-center justify-center mt-5"
               onFocus={() => setFocused(true)}
               {...getInputProps({
