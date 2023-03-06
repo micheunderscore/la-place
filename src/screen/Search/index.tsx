@@ -89,20 +89,23 @@ const SearchScreen: React.FC = () => {
         />
         lace
       </p>
-      <div className="w-5/6 md:w-1/2 mb-5">
-        <SearchBar
-          value={address}
-          onChange={(value) => dispatch(searchAddress(value))}
-          onSubmit={handleSubmit}
-        />
+      <div className="flex flex-col sm:w-5/6 md:w-1/2">
+        <div className="w-full mb-5">
+          <SearchBar
+            value={address}
+            onChange={(value) => dispatch(searchAddress(value))}
+            onSubmit={handleSubmit}
+          />
+        </div>
+        {!coordinates && (
+          <p className="flex w-full justify-evenly animate-bounce text-white text-sm sm:text-lg">
+            <p>^ ^ ^</p>
+            <p>Search a place and find it on a map using this search bar!</p>
+            <p>^ ^ ^</p>
+          </p>
+        )}
       </div>
-      {!coordinates && (
-        <p className="flex w-5/6 md:w-1/2 justify-evenly animate-bounce text-white text-lg">
-          <p>^ ^ ^</p>
-          <p>Search a place and find it on a map using this search bar!</p>
-          <p>^ ^ ^</p>
-        </p>
-      )}
+
       <div
         className={clsx(
           "flex w-full h-full transition ease-in-out duration-300 delay-100",
